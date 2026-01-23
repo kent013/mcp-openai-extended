@@ -39,7 +39,8 @@
     "typescript": "^5.7.2"
   },
   "files": [
-    "dist",
+    "dist/",
+    "dist/index.js",
     "README.md",
     "LICENSE"
   ]
