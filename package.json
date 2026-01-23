@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "tsc && chmod +x dist/index.js",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
