@@ -1,0 +1,46 @@
+{
+  "name": "mcp-openai-extended",
+  "version": "1.0.0",
+  "description": "Extended MCP server for OpenAI with GPT-5.2 support, including gpt-5.2-codex",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "mcp-openai-extended": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "openai",
+    "gpt-5.2",
+    "gpt-5.2-codex",
+    "claude",
+    "ai"
+  ],
+  "author": "kent013",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kent013/mcp-openai-extended.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kent013/mcp-openai-extended/issues"
+  },
+  "homepage": "https://github.com/kent013/mcp-openai-extended#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "openai": "^4.77.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}
