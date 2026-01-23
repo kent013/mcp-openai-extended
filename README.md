@@ -52,6 +52,15 @@ npm run build
 
 ## Configuration
 
+### ⚠️ Security Warning
+
+**NEVER commit your API key to version control!**
+
+- Keep your `OPENAI_API_KEY` in environment variables or secure configuration files
+- Add configuration files containing API keys to `.gitignore`
+- If you accidentally commit an API key, **revoke it immediately** at https://platform.openai.com/api-keys
+- Rotate your API keys regularly
+
 ### Claude Desktop / Claude Code
 
 Add to your `.mcp.json` or `claude_desktop_config.json`:
@@ -141,7 +150,19 @@ This server automatically selects the appropriate OpenAI API endpoint:
 
 - `OPENAI_API_KEY` (required): Your OpenAI API key
 
-Get your API key from: https://platform.openai.com/api-keys
+### Getting Your API Key
+
+1. Visit https://platform.openai.com/api-keys
+2. Create a new API key
+3. Store it securely - **never share or commit it to version control**
+4. Set appropriate usage limits to prevent unexpected charges
+
+### Best Practices
+
+- Use environment-specific API keys (development, staging, production)
+- Enable usage alerts in your OpenAI account
+- Regularly review API usage and rotate keys
+- Use OpenAI's API key restrictions feature to limit key permissions
 
 ## Development
 
