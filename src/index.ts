@@ -11,12 +11,24 @@ import OpenAI from "openai";
 const SUPPORTED_MODELS = [
   "gpt-4o",
   "gpt-4o-mini",
+  "o1",
   "o1-preview",
   "o1-mini",
+  "gpt-5",
+  "gpt-5-chat-latest",
+  "gpt-5-pro",
+  "gpt-5-nano",
   "gpt-5.2",
   "gpt-5.2-chat-latest",
   "gpt-5.2-pro",
   "gpt-5.2-codex",
+  "gpt-5.1",
+  "gpt-5.1-chat-latest",
+  "gpt-5.1-codex",
+  "gpt-5.1-codex-mini",
+  "gpt-5.1-codex-max",
+  "gpt-5-codex",
+  "codex-mini-latest",
   "gpt-5-mini",
 ] as const;
 
@@ -54,7 +66,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       {
         name: "openai_chat",
         description:
-          "Send messages to OpenAI's chat completion API using specified model. Supports GPT-4o, o1, and GPT-5.2 series models.",
+          "Send messages to OpenAI using a specified model. Supports GPT-4o, o1, and GPT-5 series models.",
         inputSchema: {
           type: "object",
           properties: {
@@ -81,7 +93,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
               type: "string",
               enum: SUPPORTED_MODELS,
               description:
-                "Model to use for completion (gpt-4o, gpt-4o-mini, o1-preview, o1-mini, gpt-5.2, gpt-5.2-chat-latest, gpt-5.2-pro, gpt-5.2-codex, gpt-5-mini)",
+                "Model to use for completion (gpt-4o, gpt-4o-mini, o1, o1-preview, o1-mini, gpt-5/gpt-5.1/gpt-5.2 families, and codex variants)",
               default: "gpt-5.2-codex",
             },
           },
@@ -98,7 +110,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   }
 
   const args = request.params.arguments as unknown as ChatCompletionRequest;
-  const model = args.model || "gpt-4o";
+  const model = args.model || "gpt-5.2-codex";
 
   if (!SUPPORTED_MODELS.includes(model)) {
     throw new Error(
@@ -107,8 +119,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   }
 
   try {
-    // gpt-5.2-codex uses Responses API
-    if (model === "gpt-5.2-codex") {
+    // Codex models use Responses API
+    if (model.includes("codex")) {
       // Convert messages array to Responses API format
       const systemMessage = args.messages.find(m => m.role === "system");
       const userMessages = args.messages.filter(m => m.role === "user" || m.role === "assistant");

@@ -1,7 +1,7 @@
 {
   "name": "mcp-openai-extended",
-  "version": "1.0.0",
-  "description": "Extended MCP server for OpenAI with GPT-5.2 support, including gpt-5.2-codex",
+  "version": "1.1.0",
+  "description": "Extended MCP server for OpenAI with GPT-5 model support, including codex variants",
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
@@ -15,8 +15,8 @@
     "mcp",
     "model-context-protocol",
     "openai",
-    "gpt-5.2",
-    "gpt-5.2-codex",
+    "gpt-5",
+    "gpt-5-codex",
     "claude",
     "ai"
   ],
@@ -42,6 +42,7 @@
     "dist/",
     "dist/index.js",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ]
 }

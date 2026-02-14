@@ -1,29 +1,41 @@
 # MCP OpenAI Extended
 
-Extended Model Context Protocol (MCP) server for OpenAI with GPT-5.2 series support, including the specialized `gpt-5.2-codex` model.
+Extended Model Context Protocol (MCP) server for OpenAI with GPT-5 family support, including specialized Codex models.
 
 ## Features
 
-- ✅ Full GPT-5.2 series support (gpt-5.2, gpt-5.2-chat-latest, gpt-5.2-pro, **gpt-5.2-codex**)
+- ✅ GPT-5 family support (gpt-5, gpt-5.1, gpt-5.2, chat-latest/pro/mini/nano/codex variants)
 - ✅ GPT-4o and o1 series support
-- ✅ **Responses API support** for gpt-5.2-codex (specialized code/design review model)
+- ✅ **Responses API support** for Codex models (`*codex*`)
 - ✅ Automatic API endpoint selection (Responses API for codex, Chat Completions for others)
 - ✅ Works with Claude Desktop, Claude Code, and any MCP-compatible client
 
 ## Supported Models
 
-### GPT-5.2 Series
+### GPT-5 Family
 - `gpt-5.2-codex` - **Specialized for code and design reviews** (default, uses Responses API)
-- `gpt-5.2-chat-latest` - Latest GPT-5.2 with advanced reasoning
-- `gpt-5.2-pro` - For scientific and mathematical work
-- `gpt-5.2` - Standard GPT-5.2
-- `gpt-5-mini` - Fast and lightweight
+- `gpt-5.2-chat-latest`
+- `gpt-5.2-pro`
+- `gpt-5.2`
+- `gpt-5.1-chat-latest`
+- `gpt-5.1-codex`
+- `gpt-5.1-codex-mini`
+- `gpt-5.1-codex-max`
+- `gpt-5.1`
+- `gpt-5-chat-latest`
+- `gpt-5-codex`
+- `codex-mini-latest`
+- `gpt-5-pro`
+- `gpt-5`
+- `gpt-5-mini`
+- `gpt-5-nano`
 
 ### GPT-4 Series
 - `gpt-4o` - GPT-4 Omni
 - `gpt-4o-mini` - Smaller GPT-4o
 
 ### o1 Series
+- `o1` - Reasoning model
 - `o1-preview` - Reasoning model preview
 - `o1-mini` - Smaller reasoning model
 
@@ -122,7 +134,7 @@ Default model is `gpt-5.2-codex` (automatically uses Responses API).
 }
 ```
 
-### Example: General Reasoning with GPT-5.2 Chat Latest
+### Example: General Reasoning with GPT-5 Chat Latest
 
 ```javascript
 {
@@ -134,7 +146,7 @@ Default model is `gpt-5.2-codex` (automatically uses Responses API).
         "content": "Explain quantum computing in simple terms"
       }
     ],
-    "model": "gpt-5.2-chat-latest"
+    "model": "gpt-5-chat-latest"
   }
 }
 ```
@@ -143,8 +155,8 @@ Default model is `gpt-5.2-codex` (automatically uses Responses API).
 
 This server automatically selects the appropriate OpenAI API endpoint:
 
-- **Responses API** (`/v1/responses`): For `gpt-5.2-codex` (specialized code review model)
-- **Chat Completions API** (`/v1/chat/completions`): For all other models (gpt-4o, gpt-5.2-chat-latest, etc.)
+- **Responses API** (`/v1/responses`): For Codex models (`*codex*`)
+- **Chat Completions API** (`/v1/chat/completions`): For all other models (gpt-4o, gpt-5-chat-latest, etc.)
 
 ## Environment Variables
 
@@ -189,4 +201,4 @@ MIT
 
 Based on [mcp-openai](https://github.com/mzxrai/mcp-openai) by mzxrai.
 
-Extended to support GPT-5.2 series and specialized models.
+Extended to support GPT-5 family and specialized models.

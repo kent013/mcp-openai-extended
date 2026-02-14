@@ -12,3 +12,4 @@ test-*.js
 .mcp.json
 claude_desktop_config.json
 *config*.json
+tmp/
