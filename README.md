@@ -13,22 +13,26 @@ Extended Model Context Protocol (MCP) server for OpenAI with GPT-5 family suppor
 ## Supported Models
 
 ### GPT-5 Family
-- `gpt-5.2-codex` - **Specialized for code and design reviews** (default, uses Responses API)
+- `gpt-5-codex` - **Specialized for code and design reviews** (default, uses Responses API)
+- `gpt-5.3-codex`
+- `gpt-5.3-codex-spark`
 - `gpt-5.2-chat-latest`
 - `gpt-5.2-pro`
 - `gpt-5.2`
+- `gpt-5.2-codex`
 - `gpt-5.1-chat-latest`
 - `gpt-5.1-codex`
 - `gpt-5.1-codex-mini`
 - `gpt-5.1-codex-max`
 - `gpt-5.1`
 - `gpt-5-chat-latest`
-- `gpt-5-codex`
 - `codex-mini-latest`
 - `gpt-5-pro`
 - `gpt-5`
 - `gpt-5-mini`
 - `gpt-5-nano`
+
+Note: Newer Codex model IDs may require account-level access before they work in API requests.
 
 ### GPT-4 Series
 - `gpt-4o` - GPT-4 Omni
@@ -111,7 +115,7 @@ Add to your `.mcp.json` or `claude_desktop_config.json`:
 
 The server provides a single tool: `openai_chat`
 
-Default model is `gpt-5.2-codex` (automatically uses Responses API).
+Default model is `gpt-5-codex` (automatically uses Responses API).
 
 ### Example: Design Review with GPT-5.2 Codex (Default)
 
@@ -129,7 +133,7 @@ Default model is `gpt-5.2-codex` (automatically uses Responses API).
         "content": "Review this code:\n\n```php\n$user = User::find($id);\nMail::to($user->email)->send(new TestMail());\n```"
       }
     ]
-    // model defaults to "gpt-5.2-codex"
+    // model defaults to "gpt-5-codex"
   }
 }
 ```

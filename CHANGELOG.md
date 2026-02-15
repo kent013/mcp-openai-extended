@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2026-02-15
+
+### Added
+- Added support for `gpt-5.3-codex` and `gpt-5.3-codex-spark` model IDs.
+
+### Changed
+- Changed the default model from `gpt-5.2-codex` to `gpt-5-codex` to track latest Codex updates via alias.
+- Updated README examples and supported model documentation to match the new default and model list.
+
+### Build
+- Rebuilt `dist/index.js` from updated TypeScript source.
+
 ## [1.1.0] - 2026-02-14
 
 ### Added

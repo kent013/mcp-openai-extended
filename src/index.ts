@@ -22,6 +22,8 @@ const SUPPORTED_MODELS = [
   "gpt-5.2-chat-latest",
   "gpt-5.2-pro",
   "gpt-5.2-codex",
+  "gpt-5.3-codex",
+  "gpt-5.3-codex-spark",
   "gpt-5.1",
   "gpt-5.1-chat-latest",
   "gpt-5.1-codex",
@@ -94,7 +96,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
               enum: SUPPORTED_MODELS,
               description:
                 "Model to use for completion (gpt-4o, gpt-4o-mini, o1, o1-preview, o1-mini, gpt-5/gpt-5.1/gpt-5.2 families, and codex variants)",
-              default: "gpt-5.2-codex",
+              default: "gpt-5-codex",
             },
           },
           required: ["messages"],
@@ -110,7 +112,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   }
 
   const args = request.params.arguments as unknown as ChatCompletionRequest;
-  const model = args.model || "gpt-5.2-codex";
+  const model = args.model || "gpt-5-codex";
 
   if (!SUPPORTED_MODELS.includes(model)) {
     throw new Error(
